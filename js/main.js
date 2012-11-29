@@ -17,7 +17,7 @@
       $('.remove_dataset').live('click', this.removeDataset);
       $('.add_multiple').live('click', this.addMultiple);
       $('#title').live('change', this.renameDataset);
-      $.ajax('/schema.yml', {
+      $.ajax('schema.yml', {
         success: function(data) {
           _this.fields = jsyaml.load(data);
           return _this.addDataset();

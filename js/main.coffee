@@ -9,7 +9,7 @@ class catalogGenerator
     $('.add_multiple').live 'click', @addMultiple
     $('#title').live 'change', @renameDataset
 
-    $.ajax '/schema.yml', 
+    $.ajax 'schema.yml', 
       success: (data) =>
         @fields = jsyaml.load data
         @addDataset()
