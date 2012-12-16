@@ -1,0 +1,12 @@
+<div class="dataset">
+   <h3><%= title %></h3>
+
+   <div class="fields">
+   
+   </div>
+   
+   <select name="expanded_fields" class="expanded_fields"><option></option></select>
+   <a href="#" class="add_expanded">Add expanded field</a><br />
+   <a href="#" class="remove_dataset">Remove dataset</a>
+
+</div>

@@ -1,0 +1,9 @@
+<form class="form-horizontal">
+  <div id="datasets">
+  </div>
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" id="add_dataset">Add new dataset</button>
+    <a href="#export" type="button" class="btn" id="export">Export</a>
+    <a href="#import" type="button" class="btn" id="import">Import</a>
+  </div>   
+</form>

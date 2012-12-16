@@ -1,0 +1,5 @@
+<h2>Import</h2>
+
+<form>
+  <input type="file" id="import" />
+</form>

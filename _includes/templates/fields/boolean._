@@ -1,0 +1,6 @@
+<label class="radio">
+    <input type="radio" name="{{ json }}" id="{{ json }}-true" value="true" class="field {{ json }}"> Yes
+</label>
+<label class="radio">
+    <input type="radio" name="{{ json }}" id="{{ json }}-false" value="false" class="field {{ json }}"> No
+</label>

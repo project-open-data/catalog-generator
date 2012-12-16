@@ -23,10 +23,10 @@ basic:
     type: url
     
   - name: Tags
-    definition: keywords describing tags
+    definition: Keywords describing tags
     json: keywords
     rdfa: dcat:keywords
-    type: array
+    type: text
 
   - name: License
     definition: Licenese under which the dataset is published

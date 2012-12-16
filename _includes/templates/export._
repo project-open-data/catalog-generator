@@ -1,0 +1,16 @@
+<h2>Export</h2>
+
+<h3>JSON</h3>
+<div id="json" contenteditable="true">
+<%= json %>
+</div>
+
+<h3>HTML (RDFa)</h3>
+<div id="html" contenteditable="true">
+<%= html %>
+</div>
+
+<h3>XML</h3>
+<div id="xml" contenteditable="true">
+<%= xml %>
+</div>

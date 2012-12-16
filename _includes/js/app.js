@@ -17,6 +17,7 @@
       $('.remove_dataset').live('click', this.removeDataset);
       $('.add_multiple').live('click', this.addMultiple);
       $('#title').live('change', this.renameDataset);
+      $('.add_expanded').live(this.addExpanded);
       $.ajax('schema.yml', {
         success: function(data) {
           _this.fields = jsyaml.load(data);
@@ -87,6 +88,8 @@
     catalogGenerator.prototype.getJSON = function() {
       return JSON.stringify(this.getArray());
     };
+
+    catalogGenerator.prototype.addExpanded = function() {};
 
     return catalogGenerator;
 

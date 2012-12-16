@@ -8,8 +8,9 @@ class catalogGenerator
     $('.remove_dataset').live 'click', @removeDataset
     $('.add_multiple').live 'click', @addMultiple
     $('#title').live 'change', @renameDataset
+    $('.add_expanded').live @addExpanded
 
-    $.ajax '/schema.yml', 
+    $.ajax 'schema.yml', 
       success: (data) =>
         @fields = jsyaml.load data
         @addDataset()
@@ -55,7 +56,8 @@ class catalogGenerator
   getJSON: ->
     JSON.stringify @getArray()
     
-  
+  addExpanded: ->
+    
     
 
 jQuery(document).ready ($) ->

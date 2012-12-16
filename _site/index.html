@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="css/main.css">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -30,68 +30,157 @@
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
         <div class="container">
-          <form class="form-horizontal">
-            <div id="datasets">
-            </div>
-            <div class="form-actions">
-              <button type="button" class="btn" id="add_dataset">Add new dataset</button>
-              <button type="button" class="btn btn-primary" onClick="javascript:alert( JSON.stringify( catalogGenerator.getArray() ) );">Get JSON</button>
-              <button type="button" class="btn btn-primary">Get XML</button>
-              <button type="button" class="btn btn-primary">Get RDFa</button>
-            </div>   
-          </form>
+
+  Loading...
         </div> <!-- /container -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/vendor/yaml.min.js"></script>
-        <script src="js/vendor/mustache.min.js"></script>
-        <script src="js/main.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
         
-        <script type="text/template" id="field_template">
-          <div class="control-group">
-            <label class="control-label" for="{{ json }}">{{ name }}</label>
-            <div class="controls">
-              {{> input}}
-              <span class="help-inline">{{ definition }}</span>
-            </div>
+                <script type="text/template" id="field_template">
+<div class="control-group">
+  <label class="control-label" for="<%= model.json %>"><%= model.name %></label>
+  <div class="controls">
+    <%= field( model ) %>
+    <span class="help-inline"><%= model.definition %></span>
+  </div>
+</div>
+        </script>
+        
+        <script type="text/template" id="index_template">
+<form class="form-horizontal">
+  <div id="datasets">
+  </div>
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" id="add_dataset">Add new dataset</button>
+    <a href="#export" type="button" class="btn" id="export">Export</a>
+    <a href="#import" type="button" class="btn" id="import">Import</a>
+  </div>   
+</form>
         </script>
         
         <script type="text/template" id="dataset_template">
-          <div class="dataset">
-            <h3>Dataset</h3>
-            <div class="fields">
-            
-            </div>
-            <a href="#">Add expanded field</a><br />
-            <a href="#" class="remove_dataset">Remove dataset</a>
-       
-          </div>
+<div class="dataset">
+   <h3><%= title %></h3>
+
+   <div class="fields">
+   
+   </div>
+   
+   <select name="expanded_fields" class="expanded_fields"><option></option></select>
+   <a href="#" class="add_expanded">Add expanded field</a><br />
+   <a href="#" class="remove_dataset">Remove dataset</a>
+
+</div>
+
         </script>
         
         <script type="text/template" id="text_template">
-          <input type="text" name="{{ json }}" placeholder="{{ name }}" id="{{ json }}" class="field {{ json }}" value="{{ value }}" />
+<input type="text" name="" placeholder="" id="" class="field " value="" />
+
         </script>
         
         <script type="text/template" id="url_template">
-          <input type="url" name="{{ json }}" placeholder="{{ name }}" id="{{ json }}" class="field {{ json }}" value="{{ value }}" />
+<input type="url" name="" placeholder="" id="" class="field " value="" />
+
         </script>
         
         <script type="text/template" id="boolean_template">
-          <label class="radio">
-              <input type="radio" name="{{ json }}" id="{{ json }}-true" value="true" class="field {{ json }}"> Yes
-          </label>
-          <label class="radio">
-              <input type="radio" name="{{ json }}" id="{{ json }}-false" value="false" class="field {{ json }}"> No
-          </label>
+<label class="radio">
+    <input type="radio" name="" id="-true" value="true" class="field "> Yes
+</label>
+<label class="radio">
+    <input type="radio" name="" id="-false" value="false" class="field "> No
+</label>
+
         </script>
         
         <script type="text/template" id="array_template">
-          <input type="text" name="{{ json }}[]" placeholder="{{ name }}" class="field {{ json }} multiple input-small" value="{{ value }}" />
-          <a href="#" class="add_multiple">+</a>
+
         </script>
+
+        <script type="text/template" id="export_template">
+<h2>Export</h2>
+
+<h3>JSON</h3>
+<div id="json" contenteditable="true">
+<%= json %>
+</div>
+
+<h3>HTML (RDFa)</h3>
+<div id="html" contenteditable="true">
+<%= html %>
+</div>
+
+<h3>XML</h3>
+<div id="xml" contenteditable="true">
+<%= xml %>
+</div>
+        </script>
+
+        <script type="text/template" id="import_template">
+<h2>Import</h2>
+
+<form>
+  <input type="file" id="import" />
+</form>
+        </script>
+
+        <script type="text/template" id="expanded_option">
+          
+        </script>
+        
+        <script type="text/template" id="schema">
+---
+basic:
+  - name: Title
+    definition: Human-readable name
+    json: title
+    rdfa: dct:title
+    
+  - name: Description
+    definition: Human-readable description
+    json: description
+    rdfa: dct:description
+
+  - name: Documentation URL
+    definition: URL to documentation
+    json: datadictionary
+    rdfa: dcat:dataDictionary
+    type: url
+    
+  - name: URL
+    definition: URL to dataset or API
+    json: accessurl
+    rdfa: dcat:accessURL
+    type: url
+    
+  - name: Tags
+    definition: Keywords describing tags
+    json: keywords
+    rdfa: dcat:keywords
+    type: text
+
+  - name: License
+    definition: Licenese under which the dataset is published
+    json: license
+    rdfa: dct:license
+
+  - name: Public
+    definition: Whether the dataset is public
+    json: public
+    rdfa: xsd:boolean
+    type: boolean
+    
+  - name: Agency
+    definition: Publishing Agency
+    json: organization
+    rdfa: foaf:Organization
+
+expanded:
+        </script>
+
+        <script src="js/catalog.js"></script>
 
     </body>
 </html>
