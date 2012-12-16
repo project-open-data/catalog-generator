@@ -13,7 +13,7 @@
 
     IndexView.prototype.template = $('#index_template').html();
 
-    IndexView.prototype.el = '.container';
+    IndexView.prototype.el = '#main';
 
     IndexView.prototype.events = {
       "click #add_dataset": "addDataset"

@@ -1,5 +1,5 @@
 class Application.Views.ImportView extends Backbone.View
-  el: '.container'
+  el: '#main'
   template: $('#import_template').html()
   
   render: ->

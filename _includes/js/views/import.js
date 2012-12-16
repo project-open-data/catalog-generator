@@ -11,7 +11,7 @@
       return ImportView.__super__.constructor.apply(this, arguments);
     }
 
-    ImportView.prototype.el = '.container';
+    ImportView.prototype.el = '#main';
 
     ImportView.prototype.template = $('#import_template').html();
 

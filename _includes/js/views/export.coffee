@@ -1,5 +1,5 @@
 class Application.Views.ExportView extends Backbone.View
-  el: '.container'
+  el: '#main'
   template: $('#export_template').html()
   
   render: ->

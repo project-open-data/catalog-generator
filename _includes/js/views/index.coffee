@@ -1,6 +1,6 @@
 class Application.Views.IndexView extends Backbone.View
   template: $('#index_template').html()
-  el: '.container'
+  el: '#main'
   
   events: 
     "click #add_dataset": "addDataset"

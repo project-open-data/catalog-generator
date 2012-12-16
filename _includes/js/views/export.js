@@ -11,7 +11,7 @@
       return ExportView.__super__.constructor.apply(this, arguments);
     }
 
-    ExportView.prototype.el = '.container';
+    ExportView.prototype.el = '#main';
 
     ExportView.prototype.template = $('#export_template').html();
 
