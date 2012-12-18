@@ -49,7 +49,7 @@
           return "data." + $(this.el).attr("data-type");
         },
         data: function() {
-          return $("#" + $(this.el).attr("data-type")).html();
+          return $("#" + $(this.el).attr("data-type")).val();
         }
       });
     };

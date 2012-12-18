@@ -25,6 +25,6 @@ class Application.Views.ExportView extends Backbone.View
       filename: ->
        "data." + $(@.el).attr("data-type")
       data: ->
-        $( "#" + $(@.el).attr( "data-type" ) ).html()
+        $( "#" + $(@.el).attr( "data-type" ) ).val()
       
       
