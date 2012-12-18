@@ -1,10 +1,12 @@
 <h2>Export</h2>
 
-<h3>JSON</h3>
-<textarea id="json"><%= json %></textarea>
+<p>Click and copy/paste to the appropriate file to export.</p>
 
-<h3>HTML (RDFa)</h3>
+<h3>JSON <code>/data.json</code></h3>
+<textarea id="json" class="copy_zone"><%= json %></textarea>
+
+<h3>HTML (RDFa) <code>/data</code></h3>
 <textarea id="html" class="copy_zone"><%= html %></textarea>
 
-<h3>XML</h3>
+<h3>XML <code>/data.xml</code></h3>
 <textarea id="xml" class="copy_zone"><%= xml %></textarea>

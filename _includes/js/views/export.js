@@ -15,6 +15,11 @@
 
     ExportView.prototype.template = $('#export_template').html();
 
+    ExportView.prototype.events = {
+      "focus .copy_zone": "select",
+      "mouseup .copy_zone": "preventDefault"
+    };
+
     ExportView.prototype.render = function() {
       var compiled;
       compiled = _.template(this.template);
@@ -23,6 +28,16 @@
         xml: this.collection.getXML(),
         html: this.collection.getHTML()
       }));
+    };
+
+    ExportView.prototype.select = function(e) {
+      return e.target.select();
+    };
+
+    ExportView.prototype.preventDefault = function(e) {
+      e.preventDefault;
+      e.stopPropegation;
+      return false;
     };
 
     return ExportView;
