@@ -19,7 +19,7 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="css/main.css">
-
+        <link rel="stylesheet" href="css/app.css">
         <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -28,7 +28,26 @@
         <![endif]-->
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-        
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{{ site.project_open_data_url }}">Project Open Data</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="{{ site.url }}#">Home</a></li>
+              <li><a href="#import">Import</a></li>
+              <li><a href="#export">Export</a></li>
+              <li><a href="{{ site.repo_url }}">Fork</a></li>
+              <li><a href="{{ site.repo_url }}/commits/{{ site.branch }}">Revision History</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
         <div class="container">
 
         <h1>Catalog Generator</h1>
