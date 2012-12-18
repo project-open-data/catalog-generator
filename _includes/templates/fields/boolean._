@@ -1,6 +1,6 @@
 <label class="radio">
-    <input type="radio" name="{{ json }}" id="{{ json }}-true" value="true" class="field {{ json }}"> Yes
+    <input type="radio" name="<%= json %>" id="<%= json %>-true" value="true" class="field <%= json %>" <% if (value) { %>checked=true<% }%>> Yes
 </label>
 <label class="radio">
-    <input type="radio" name="{{ json }}" id="{{ json }}-false" value="false" class="field {{ json }}"> No
+    <input type="radio" name="<%= json %>" id="<%= json %>-false" value="false" class="field <%= json %>"> No
 </label>

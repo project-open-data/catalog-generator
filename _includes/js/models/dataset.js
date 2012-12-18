@@ -36,11 +36,30 @@
 
     Datasets.prototype.model = Application.Models.Dataset;
 
-    Datasets.prototype.getJSON = function() {};
+    Datasets.prototype.getJSON = function() {
+      return JSON.stringify(this.toJSON());
+    };
 
-    Datasets.prototype.getHTML = function() {};
+    Datasets.prototype.getHTML = function() {
+      return this.getTemplated('html');
+    };
 
-    Datasets.prototype.getXML = function() {};
+    Datasets.prototype.getXML = function() {
+      return "<datasets>\n" + this.getTemplated('xml') + "</datasets>\n";
+    };
+
+    Datasets.prototype.getTemplated = function(type) {
+      var compiled, output;
+      output = '';
+      compiled = _.template($('#' + type + '_template').html());
+      this.each(function(dataset) {
+        return output += compiled({
+          schema: Application.Schema.basic.toJSON(),
+          dataset: dataset.toJSON()
+        });
+      });
+      return output;
+    };
 
     return Datasets;
 

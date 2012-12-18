@@ -1,16 +1,10 @@
 <h2>Export</h2>
 
 <h3>JSON</h3>
-<div id="json" contenteditable="true">
-<%= json %>
-</div>
+<textarea id="json"><%= json %></textarea>
 
 <h3>HTML (RDFa)</h3>
-<div id="html" contenteditable="true">
-<%= html %>
-</div>
+<textarea id="html" class="copy_zone"><%= html %></textarea>
 
 <h3>XML</h3>
-<div id="xml" contenteditable="true">
-<%= xml %>
-</div>
+<textarea id="xml" class="copy_zone"><%= xml %></textarea>

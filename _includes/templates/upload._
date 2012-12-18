@@ -1,0 +1,8 @@
+<h2>Import</h2>
+
+<p><em>Import a JSON or CSV file. Select a file to import, or simply drag a file below.</em></p>
+
+<form>
+  <input type="file" id="import" />
+  <div id="drop_zone">Drop files here</div>
+</form>

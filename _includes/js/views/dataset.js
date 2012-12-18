@@ -19,15 +19,23 @@
 
     DatasetView.prototype.className = "dataset";
 
+    DatasetView.prototype.id = "datasets";
+
+    DatasetView.prototype.attributes = {
+      foo: "bar"
+    };
+
     DatasetView.prototype.events = {
-      "click .remove_dataset": "removeDataset"
+      "click .remove_dataset": "removeDataset",
+      "change input": "update"
     };
 
     DatasetView.prototype.render = function() {
       var compiled;
       compiled = _.template(this.template);
       this.$el.append(compiled(this.model.toJSON()));
-      return this.renderFields();
+      this.renderFields();
+      return this;
     };
 
     DatasetView.prototype.removeDataset = function() {
@@ -44,11 +52,16 @@
       var _this = this;
       return Application.Schema.basic.forEach(function(field) {
         var view;
+        field.set('value', _this.model.get(field.get('json')));
         view = new Application.Views.FieldView({
           model: field
         });
         return view.render();
       });
+    };
+
+    DatasetView.prototype.update = function(e) {
+      return console.log($(e.target).n());
     };
 
     return DatasetView;

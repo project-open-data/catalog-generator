@@ -4,7 +4,8 @@ class Application.Models.Field extends Backbone.Model
     json: "",
     name: "",
     rdfa: "",
-    type: "text"
+    type: "text",
+    value: ""
     
 class Application.Collections.Fields extends Backbone.Collection
   model: Application.Models.Field

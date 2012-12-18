@@ -5,11 +5,15 @@ class Application.Views.IndexView extends Backbone.View
   events: 
     "click #add_dataset": "addDataset"
        
-  render: ->
+  render: =>
     @$el.html @template
-    @addDataset()
+    @collection.forEach (dataset) ->
+      view = new Application.Views.DatasetView model: dataset
+      view.render()
   
   addDataset: ->
-    view = new Application.Views.DatasetView model: new Application.Models.Dataset()
-    view.render()
-    false
+    @collection.add new Application.Models.Dataset()
+    
+  initialize: ->
+    @collection.on 'add', @render
+    @addDataset() if @collection.size() == 0

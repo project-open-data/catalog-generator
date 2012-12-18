@@ -1,20 +1,23 @@
 class Router extends Backbone.Router
   routes:
     "": "index"
+    "upload": "upload"
     "import": "import"
     "export": "export"
     
   index: ->
-   view = new Application.Views.IndexView()
+   view = new Application.Views.IndexView( collection: Application.datasets )
    view.render()
   
-  import: ->
-   view = new Application.Views.ImportView()
+  upload: ->
+   view = new Application.Views.UploadView()
    view.render()
    
+  import: ->
+    @navigate 'upload', true
+   
   export: ->
-   datasets = new Application.Collections.Datasets()
-   view = new Application.Views.ExportView()
-   view.render( collection: datasets )
+   view = new Application.Views.ExportView collection: Application.datasets
+   view.render()
    
 Application.Router = new Router()

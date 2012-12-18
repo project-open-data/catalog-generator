@@ -14,29 +14,35 @@
 
     Router.prototype.routes = {
       "": "index",
+      "upload": "upload",
       "import": "import",
       "export": "export"
     };
 
     Router.prototype.index = function() {
       var view;
-      view = new Application.Views.IndexView();
+      view = new Application.Views.IndexView({
+        collection: Application.datasets
+      });
+      return view.render();
+    };
+
+    Router.prototype.upload = function() {
+      var view;
+      view = new Application.Views.UploadView();
       return view.render();
     };
 
     Router.prototype["import"] = function() {
-      var view;
-      view = new Application.Views.ImportView();
-      return view.render();
+      return this.navigate('upload', true);
     };
 
     Router.prototype["export"] = function() {
-      var datasets, view;
-      datasets = new Application.Collections.Datasets();
-      view = new Application.Views.ExportView();
-      return view.render({
-        collection: datasets
+      var view;
+      view = new Application.Views.ExportView({
+        collection: Application.datasets
       });
+      return view.render();
     };
 
     return Router;

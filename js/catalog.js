@@ -7,17 +7,20 @@ window.Application = {
   Views: {},
   Router: {},
   Collections: {},
-  Fields: {}
+  Fields: {},
+  datasets: {}
 };
 
 //libraries
 {% include js/vendor/underscore.js %}
 {% include js/vendor/backbone.js %}
 {% include js/vendor/yaml.min.js %}
+{% include js/vendor/jquery.csv.js %}
 
 //application
 {% include js/views/index.js %}
 {% include js/views/import.js %}
+{% include js/views/upload.js %}
 {% include js/views/export.js %}
 {% include js/views/dataset.js %}
 {% include js/views/field.js %}
@@ -26,7 +29,8 @@ window.Application = {
 {% include js/router.js %}
 {% include js/importSchema.js %}
 
-/*{% include js/app.js %}*/
+//init collection
+Application.datasets = new Application.Collections.Datasets()
 
 //start router
-Backbone.history.start({pushstate: true});
+Backbone.history.start()

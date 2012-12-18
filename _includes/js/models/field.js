@@ -16,7 +16,8 @@
       json: "",
       name: "",
       rdfa: "",
-      type: "text"
+      type: "text",
+      value: ""
     };
 
     return Field;

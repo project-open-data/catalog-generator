@@ -1,22 +1,2 @@
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#drop_zone { width: 50%; border: 1px dashed blue; height: 50px; text-align: center; vertical-align: center; background: #eee; font-weight: bold; padding-top: 25px; }
+#drop_zone.hover { background: #ddd; border: 1px solid #000; }

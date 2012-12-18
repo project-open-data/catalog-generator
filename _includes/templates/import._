@@ -1,5 +1,22 @@
 <h2>Import</h2>
 
-<form>
-  <input type="file" id="import" />
+<p>Map each field to the proper schema attribute. Non-mapped fields will be ignored.</p>
+<form class="form form-horizontal">
+  <% _.each( fields, function(field) { %>
+<div class="control-group">
+  <label class="control-label" for="<%= field %>"><%= field %></label>
+  <div class="controls">
+    <select name="map[<%= field %>]" id="map[<%= field %>]">
+      <option></option>
+      <% _.each( schema, function(attr) { %>
+        <option value="<%= attr.json %>" <% if (field==attr.json) { %>selected=true<% } %>><%= attr.name %></option>
+      <% })%>
+    </select>
+  </div>
+</div>
+  <% }) %>
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" id="import">Import</button>
+    <a href="#" type="button" class="btn" id="export">Back</a>
+  </div>   
 </form>
