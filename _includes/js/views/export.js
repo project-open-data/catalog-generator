@@ -23,11 +23,12 @@
     ExportView.prototype.render = function() {
       var compiled;
       compiled = _.template(this.template);
-      return this.$el.html(compiled({
+      this.$el.html(compiled({
         json: this.collection.getJSON(),
         xml: this.collection.getXML(),
         html: this.collection.getHTML()
       }));
+      return this.initDownload();
     };
 
     ExportView.prototype.select = function(e) {
@@ -38,6 +39,19 @@
       e.preventDefault;
       e.stopPropegation;
       return false;
+    };
+
+    ExportView.prototype.initDownload = function() {
+      return $(".download").downloadify({
+        swf: Application.url + "/swf/downloadify.swf",
+        downloadImage: Application.url + "/img/download.png",
+        filename: function() {
+          return "data." + $(this.el).attr("data-type");
+        },
+        data: function() {
+          return $("#" + $(this.el).attr("data-type")).html();
+        }
+      });
     };
 
     return ExportView;

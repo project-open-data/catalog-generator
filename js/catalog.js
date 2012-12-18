@@ -8,7 +8,8 @@ window.Application = {
   Router: {},
   Collections: {},
   Fields: {},
-  datasets: {}
+  datasets: {},
+  url: '{{ site.url }}'
 };
 
 //libraries
@@ -16,6 +17,8 @@ window.Application = {
 {% include js/vendor/backbone.js %}
 {% include js/vendor/yaml.min.js %}
 {% include js/vendor/jquery.csv.js %}
+{% include js/vendor/swfobject.js %}
+{% include js/vendor/downloadify.min.js %}
 
 //application
 {% include js/views/index.js %}

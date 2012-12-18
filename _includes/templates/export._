@@ -4,9 +4,12 @@
 
 <h3>JSON <code>/data.json</code></h3>
 <textarea id="json" class="copy_zone"><%= json %></textarea>
+<div class="download" data-type="json"></div>
 
 <h3>HTML (RDFa) <code>/data</code></h3>
 <textarea id="html" class="copy_zone"><%= html %></textarea>
+<div class="download" data-type="html"></div>
 
 <h3>XML <code>/data.xml</code></h3>
 <textarea id="xml" class="copy_zone"><%= xml %></textarea>
+<div class="download" data-type="xml"></div>
