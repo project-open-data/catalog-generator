@@ -12,36 +12,58 @@ basic:
 
   - name: Documentation URL
     definition: URL to documentation
-    json: datadictionary
+    json: dataDictionary
     rdfa: dcat:dataDictionary
     type: url
     
   - name: URL
     definition: URL to dataset or API
-    json: accessurl
+    json: accessURL
     rdfa: dcat:accessURL
     type: url
+    
+  - name: Format
+    definition: File format or API type
+    json: format
+    rdfa: dcterms:format
+
+  - name: Queryable
+    definition: File format or API type
+    json: queryable
+    rdfa: xsd:boolean
+    type: boolean
     
   - name: Tags
     definition: Keywords describing tags
     json: keywords
-    rdfa: dcat:keywords
+    rdfa: dcat:keyword
     type: text
 
-  - name: License
-    definition: Licenese under which the dataset is published
-    json: license
-    rdfa: dct:license
+  - name: Last Update
+    definition: Most recent date modified
+    json: modified
+    rdfa: dcterms:modified
 
+  - name: Publisher
+    definition: The publishing agency
+    json: organization
+    rdfa: foaf:Organization
+    
+  - name: Contact Name
+    definition: First, last
+    json: person
+    rdfa: foaf:Person
+
+  - name: Contact Email
+    definition: Contact person's email
+    json: mbox
+    rdfa: foaf:mbox
+    
   - name: Public
     definition: Whether the dataset is public
     json: public
     rdfa: xsd:boolean
     type: boolean
     
-  - name: Agency
-    definition: Publishing Agency
-    json: organization
-    rdfa: foaf:Organization
 
 expanded:
