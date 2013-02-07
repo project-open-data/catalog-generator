@@ -16,22 +16,16 @@ basic:
     rdfa: dcat:dataDictionary
     type: url
     
-  - name: URL
-    definition: URL to dataset or API
-    json: accessURL
-    rdfa: dcat:accessURL
+  - name: Download URL
+    definition: URL to dataset 
+    json: download
+    rdfa: dcat:download
     type: url
     
   - name: Format
     definition: File format or API type
     json: format
     rdfa: dcterms:format
-
-  - name: Queryable
-    definition: File format or API type
-    json: queryable
-    rdfa: xsd:boolean
-    type: boolean
     
   - name: Tags
     definition: Keywords describing tags
@@ -59,6 +53,11 @@ basic:
     json: mbox
     rdfa: foaf:mbox
     
+  - name: Unique Identifier
+    definition: A unique identifier for the dataset
+    json: identifier
+    rdfa: dcterms:identifier
+    
   - name: Public
     definition: Whether the dataset is public
     json: public
@@ -66,4 +65,76 @@ basic:
     type: boolean
     
 
+if_applicable:
+
+  - name: Endpoint
+    definition: API Endpoint
+    json: WebService
+    rdfa: dcat:webService
+    
+  - name: License
+    definition: The license dataset is published with
+    json: license
+    rdfa: dcterms:license
+
+  - name: Spatial
+    definition: Range of spatial applicability
+    json: spatial
+    rdfa: dcterms:spatial
+
+  - name: Temporal
+    definition: Range of temporal applicability
+    json: temporal
+    rdfa: dcterms:temporal
+
 expanded:
+
+  - name: Release Date
+    definition: Date of issuance
+    json: issued
+    rdfa: dct:issued
+
+  - name: Frequency
+    definition: Frequency of update
+    json: accrualPeriodicity
+    rdfa: dct:accrualPeriodocity
+
+  - name: Language
+    definition: Language of the dataset
+    json: language
+    rdfa: dcat:language
+
+  - name: Granularity
+    definition: Level of granularity of dataset
+    json: granularity
+    rdfa: dcat:granularity
+
+  - name: Category
+    definition: Main thematic category
+    json: theme
+    rdfa: dcat:theme
+
+  - name: Related Documents
+    definition: Related material
+    json: references
+    rdfa: dcat:distribution
+
+  - name: Distribution
+    definition: To connect to available distributions
+    json: distribution
+    rdfa: dcat:distribution
+
+  - name: Size
+    definition: Size of the downloadable dataset
+    json: size
+    rdfa: dcat:size
+
+  - name: Homepage URL
+    definition: Dataset homepage
+    json: homepage
+    rdfa: foaf:homepage
+
+  - name: RSS Feed
+    definition: URl for RSS feed of data
+    json: Feed
+    rdfa: dcat:feed
