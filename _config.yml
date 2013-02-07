@@ -1,6 +1,8 @@
----
 server: true
 auto: true
 url: http://project-open-data.github.com/catalog-generator
 repo_url: http://github.com/project-open-data/catalog-generator
 branch: gh-pages
+exclude: ["node_modules", "package.json", "Gruntfile.coffee", "Gemfile", "Gemfile.lock"]
+root: "/"
+css_url: http://gsa-ocsit.github.com/project-open-data.github.com/assets/css/style.css

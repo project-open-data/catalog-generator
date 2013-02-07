@@ -1,1 +1,69 @@
-_includes/schema.yml
+---
+basic:
+  - name: Title
+    definition: Human-readable name
+    json: title
+    rdfa: dct:title
+    
+  - name: Description
+    definition: Human-readable description
+    json: description
+    rdfa: dct:description
+
+  - name: Documentation URL
+    definition: URL to documentation
+    json: dataDictionary
+    rdfa: dcat:dataDictionary
+    type: url
+    
+  - name: URL
+    definition: URL to dataset or API
+    json: accessURL
+    rdfa: dcat:accessURL
+    type: url
+    
+  - name: Format
+    definition: File format or API type
+    json: format
+    rdfa: dcterms:format
+
+  - name: Queryable
+    definition: File format or API type
+    json: queryable
+    rdfa: xsd:boolean
+    type: boolean
+    
+  - name: Tags
+    definition: Keywords describing tags
+    json: keywords
+    rdfa: dcat:keyword
+    type: text
+
+  - name: Last Update
+    definition: Most recent date modified
+    json: modified
+    rdfa: dcterms:modified
+
+  - name: Publisher
+    definition: The publishing agency
+    json: organization
+    rdfa: foaf:Organization
+    
+  - name: Contact Name
+    definition: First, last
+    json: person
+    rdfa: foaf:Person
+
+  - name: Contact Email
+    definition: Contact person's email
+    json: mbox
+    rdfa: foaf:mbox
+    
+  - name: Public
+    definition: Whether the dataset is public
+    json: public
+    rdfa: xsd:boolean
+    type: boolean
+    
+
+expanded:

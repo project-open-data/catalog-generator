@@ -10,17 +10,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/app.css">
-        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link rel="stylesheet" href="{{ site.css_url }}">
+        <link rel="stylesheet" href="assets/css/app.css">
+        
+        <script src="assets/js/modernizr.js"></script>
+        
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -28,6 +22,7 @@
         <![endif]-->
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -52,4 +47,4 @@
 
         <h1>Catalog Generator</h1>
 
-        <div id="main">
+        <div id="content">

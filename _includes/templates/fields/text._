@@ -1,1 +1,0 @@
-<input type="text" name="<%= json %>" placeholder="<%= name %>" id="<%= json %>" class="field <%= json %>" value="<%= value %>" />
