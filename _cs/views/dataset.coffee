@@ -1,11 +1,8 @@
 class Application.Views.Dataset extends Backbone.View
   
   template: Application.Templates.dataset
-  el: '#datasets'
   tagName: "div"
   className: "dataset"
-  id: "datasets"
-  attributes: { foo: "bar"}
   
   events: 
     "click .remove_dataset": "removeDataset"
@@ -14,27 +11,35 @@ class Application.Views.Dataset extends Backbone.View
     "change .title": "renameDataset"
     "click .add_expanded": "addExpanded"
 
-  render: ->
-    @$el.append @template @model.toJSON()
-    @renderFields()
+  render: =>
+    @$el.html @template @model.toJSON()
+    @model.fields.forEach (field) ->
+      @$('.fields').append field.view.el
+      field.view.render()
     @
     
   removeDataset: ->
     if confirm "Are you sure?"
+      @model.destroy()
       @remove()
   
   renameDataset: (e) ->
-    @$el.children('h3').html $(e.target).val()
-    
-  renderFields: ->
-    Application.schema.basic.forEach (field) =>
-      field.set 'value', @model.get field.get('json')
-      view = new Application.Views.Field model: field
-      view.render()  
+    @render()
 
   update: (e) ->
+    field = @$(e.target)
+    @model.set field.data('field'), field.val()
 
   addMultiple: ->
     @$.siblings('input').last().clone().appendTo $(@).parent()
 
   addExpanded: ->
+
+  initialize: ->
+    @model.fields.on "add", @addField
+    @model.on 'all', @render
+
+  addField: (field) =>
+    field.view.dataset = @model
+    @$('.fields').append field.view.el
+    

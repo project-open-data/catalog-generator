@@ -1,11 +1,11 @@
 class Application.Views.Field extends Backbone.View
-  el: '.fields'
   tagName: 'div'
-  class: 'field'
+  className: 'field'
   template: Application.Templates.field
   
   input: =>
     Application.Templates[ "fields/" + @model.get('type')]
 
   render: ->
-    @$el.append @template model: @model.toJSON(), field: @input @model.toJSON()
+    console.log  @dataset.toJSON()
+    @$el.html @template dataset: @dataset.toJSON(), field: @input(), model: @model.toJSON(), value: @dataset.get( @model.get( 'json' ) ) 

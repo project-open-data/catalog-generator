@@ -3,17 +3,20 @@ class Application.Views.Index extends Backbone.View
   el: '#content'
   
   events: 
-    "click #add_dataset": "addDataset"
+    "click #add_dataset": "add"
        
-  render: =>
+  render: ->
     @$el.html @template()
-    @collection.forEach (dataset) ->
-      view = new Application.Views.Dataset model: dataset
-      view.render()
   
-  addDataset: ->
-    @collection.add new Application.Models.Dataset()
-    
+  addDataset: (dataset) =>
+    @$('.datasets').append dataset.view.el    
+
   initialize: ->
-    @collection.on 'add', @render
-    @addDataset() if @collection.size() == 0
+    @render()
+    
+    @collection.on 'add', @addDataset
+
+    @add() if @collection.size() == 0
+
+  add: ->
+    @collection.add {}

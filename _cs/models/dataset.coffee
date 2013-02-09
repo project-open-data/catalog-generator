@@ -5,6 +5,12 @@ class Application.Models.Dataset extends Backbone.Model
     Application.schema.basic.forEach (field) =>
       hash[field.get 'json'] = null
     hash
+    
+  initialize: ->
+    @fields = new Application.Collections.Fields()
+    @view = new Application.Views.Dataset model: @
+    for field, value of @attributes
+      @fields.add Application.schema.get field
 
 class Application.Collections.Datasets extends Backbone.Collection
   model: Application.Models.Dataset

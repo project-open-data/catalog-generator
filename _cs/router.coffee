@@ -7,7 +7,6 @@ class Router extends Backbone.Router
     
   index: ->
     view = new Application.Views.Index( collection: Application.datasets )
-    view.render()
   
   upload: ->
     view = new Application.Views.Upload()
