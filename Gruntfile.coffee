@@ -59,8 +59,12 @@ module.exports = (grunt) ->
       css:
         src: "_includes/css/app.css"
         rules:
-          "ids": false  
-                  
+          "ids": false 
+           
+    coffeelintOptions:
+      max_line_length:
+        level: "ignore"
+
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'

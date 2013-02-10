@@ -1,5 +1,5 @@
 <dataset>
   <% schema.forEach( function(field) {  %>
-    <attribute rel="<%= field.rdfa %>"><%= dataset[field.json] %></attribute>
+    <attribute rel="<%= field.rdfa %>"><%= dataset[field.json] || "" %></attribute>
   <% }); %>
 </dataset>
