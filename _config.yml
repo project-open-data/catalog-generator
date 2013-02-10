@@ -6,3 +6,4 @@ branch: gh-pages
 exclude: ["node_modules", "package.json", "Gruntfile.coffee", "Gemfile", "Gemfile.lock"]
 root: "/"
 css_url: http://gsa-ocsit.github.com/project-open-data.github.com/assets/css/style.css
+project_open_data_url: http://gsa-ocsit.github.com/project-open-data.github.com/
