@@ -1,4 +1,4 @@
-class Application.Models.Field extends Backbone.Model
+ class Application.Models.Field extends Backbone.Model
   defaults:
     definition: "",
     json: "",

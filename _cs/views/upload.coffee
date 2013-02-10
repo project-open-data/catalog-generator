@@ -49,7 +49,7 @@ class Application.Views.Upload extends Backbone.View
     reader = new FileReader()
     reader.onload = (file) =>
       data = @parseFile file.target.result
-      view = new Application.Views.ImportView collection: data
+      view = new Application.Views.Import collection: data
       view.render()
       Application.Router.navigate 'import'
     reader.readAsText file

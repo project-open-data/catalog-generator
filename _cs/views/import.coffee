@@ -6,14 +6,14 @@ class Application.Views.Import extends Backbone.View
     "click #import": "import"
     
   render: ->
-    schema = Application.Schema.basic.toJSON() #todo: add extended via concat()
+    schema = Application.schema.basic.toJSON() #todo: add extended via concat()
     @$el.html @template( schema: schema, fields: @getFields() )
     
   getFields: ->
     fields = []
     $.each @collection, (k, row) ->
       $.each row, (field, value) ->
-        fields.push field if $.inArray field, fields == -1
+        fields.push field if $.inArray( field, fields ) == -1
     fields
     
   import: ->
