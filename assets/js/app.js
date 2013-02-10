@@ -18,10 +18,10 @@ window.Application = {
   Templates: {},
   url: "{{ site.url }}"
 };
+
 {% include js/templates.js %}
 {% include js/app.js %}
 
 Application.schema = new Application.Collections.Schema()
 Application.datasets = new Application.Collections.Datasets()
-
 Backbone.history.start({ pushState: false, root: "{{ site.root }}" });
