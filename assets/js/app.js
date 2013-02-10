@@ -15,7 +15,8 @@ window.Application = {
   Collections: {},
   Views: {},
   Router: {},
-  Templates: {}
+  Templates: {},
+  url: "{{ site.url }}"
 };
 {% include js/templates.js %}
 {% include js/app.js %}

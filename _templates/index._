@@ -1,6 +1,6 @@
-<div class="datasets">
-</div>
 <form class="form-horizontal">
+  <div class="datasets">
+  </div>
   <div class="form-actions">
     <button type="button" class="btn btn-primary" id="add_dataset">Add new dataset</button>
     <a href="#export" type="button" class="btn" id="export">Export</a>

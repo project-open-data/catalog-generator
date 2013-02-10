@@ -28,6 +28,6 @@ class Application.Collections.Schema
       @[type].import fields
 
   get: (field) ->
-    model = @basic.where "json": field
-    model = @expanded.where "json": field unless model
-    _.clone model
+    res = @basic.where "json": field
+    res = @expanded.where "json": field unless res.length
+    _.clone _.first res

@@ -20,7 +20,7 @@ class Application.Views.Export extends Backbone.View
   initDownload: ->
     $( ".download" ).downloadify
       swf: Application.url + "/swf/downloadify.swf"
-      downloadImage: Application.url + "/img/download.png"
+      downloadImage: Application.url + "/assets/img/download.png"
       filename: ->
        "data." + $(@.el).attr("data-type")
       data: ->

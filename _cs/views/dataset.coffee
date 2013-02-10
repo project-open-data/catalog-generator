@@ -9,19 +9,21 @@ class Application.Views.Dataset extends Backbone.View
     "change input": "update"
     "click .add_multiple": "addMultiple"
     "change .title": "renameDataset"
-    "click .add_expanded": "addExpanded"
+    "change .expanded_fields": "addExpanded"
 
   render: =>
-    @$el.html @template @model.toJSON()
+    @$el.html @template @model.toJSON(), schema: Application.schema
     @model.fields.forEach (field) ->
       @$('.fields').append field.view.el
       field.view.render()
     @
     
-  removeDataset: ->
-    if confirm "Are you sure?"
+  removeDataset: (e) ->
+    e.preventDefault()
+    if confirm "Are you sure you would like to remove this dataset?"
       @model.destroy()
       @remove()
+    false
   
   renameDataset: (e) ->
     @render()
@@ -33,7 +35,11 @@ class Application.Views.Dataset extends Backbone.View
   addMultiple: ->
     @$.siblings('input').last().clone().appendTo $(@).parent()
 
-  addExpanded: ->
+  addExpanded: (e) ->
+    select = $(e.target)
+    @model.fields.add( Application.schema.get( select.val() ).toJSON() )
+    select.children("option:selected").remove()
+    select.parent().parent().remove() if select.children().length == 1
 
   initialize: ->
     @model.fields.on "add", @addField
@@ -42,4 +48,5 @@ class Application.Views.Dataset extends Backbone.View
   addField: (field) =>
     field.view.dataset = @model
     @$('.fields').append field.view.el
+    field.view.render()
     

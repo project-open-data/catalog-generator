@@ -10,7 +10,7 @@ class Application.Models.Dataset extends Backbone.Model
     @fields = new Application.Collections.Fields()
     @view = new Application.Views.Dataset model: @
     for field, value of @attributes
-      @fields.add Application.schema.get field
+      @fields.add Application.schema.get(field).toJSON()
 
 class Application.Collections.Datasets extends Backbone.Collection
   model: Application.Models.Dataset

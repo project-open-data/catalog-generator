@@ -1,10 +1,27 @@
-   <h3><%= title || "" %></h3>
+<h3><%= title || "" %></h3>
 
-   <div class="fields">
+<div class="fields">
    
-   </div>
-   
-   <select name="expanded_fields" class="expanded_fields"><option></option></select>
-   <a href="#" class="add_expanded">Add expanded field</a><br />
-   <a href="#" class="remove_dataset">Remove dataset</a>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="expanded">Add Expanded Field:</label>
+  <div class="controls">
+    <select name="expanded_fields" class="expanded_fields">
+      <option></option>
+      <% Application.schema.expanded.forEach( function( field ) { %>
+        <option value="<%= field.get("json") %>"><%= field.get("name") %></option>
+      <% }) %>
+    </select>
+  </div>
+</div>
+
+
+<div class="control-group">
+  <div class="controls">
+    <button class="remove_dataset btn" alt="Remove dataset"><i class="icon-trash"></i></button>
+  </div>
+</div>
+
+
 
