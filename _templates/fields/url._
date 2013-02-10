@@ -1,1 +1,1 @@
-<input type="url" name="<%= json %>" placeholder="<%= name %>" data-field="<%= json %>"  class="field <%= json %>" value="<%= value || "" %>" />
+<input type="url" name="<%= json %>" placeholder="<%= name %>" data-field="<%= json %>" class="field <%= json %>" value="<%= value || "" %>" />

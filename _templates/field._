@@ -1,7 +1,7 @@
 <div class="control-group">
   <label class="control-label" for="<%= model.json %>"><%= model.name %></label>
   <div class="controls">
-    <%= field( model, dataset ) %>
+    <%= field %>
     <span class="help-inline"><%= model.definition %></span>
   </div>
 </div>
