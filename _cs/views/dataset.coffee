@@ -7,7 +7,6 @@ class Application.Views.Dataset extends Backbone.View
   events: 
     "click .remove_dataset": "removeDataset"
     "change input": "update"
-    "click .add_multiple": "addMultiple"
     "change .title": "renameDataset"
     "change .expanded_fields": "addExpanded"
 
@@ -32,9 +31,6 @@ class Application.Views.Dataset extends Backbone.View
     field = @$(e.target)
     @model.set field.data('field'), field.val()
 
-  addMultiple: ->
-    @$.siblings('input').last().clone().appendTo $(@).parent()
-
   addExpanded: (e) ->
     select = $(e.target)
     @model.fields.add( Application.schema.get( select.val() ).toJSON() )
@@ -43,7 +39,7 @@ class Application.Views.Dataset extends Backbone.View
 
   initialize: ->
     @model.fields.on "add", @addField
-    @model.on 'all', @render
+    @model.on 'add', @render
 
   addField: (field) =>
     field.view.dataset = @model
