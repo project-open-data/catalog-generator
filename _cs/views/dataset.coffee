@@ -13,8 +13,8 @@ class Application.Views.Dataset extends Backbone.View
 
   render: =>
     @$el.html @template @model.toJSON(), schema: Application.schema
-    @model.fields.forEach (field) ->
-      @$('.fields').append field.view.el
+    @model.fields.forEach (field) =>
+      @$el.find('.fields').append field.view.el
       field.view.render()
     @
     
@@ -47,6 +47,6 @@ class Application.Views.Dataset extends Backbone.View
 
   addField: (field) =>
     field.view.dataset = @model
-    @$('.fields').append field.view.el
+    @$el.find('.fields').append field.view.el
     field.view.render()
     
