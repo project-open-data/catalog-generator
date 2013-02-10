@@ -15,10 +15,7 @@ class Application.Views.Index extends Backbone.View
 
   initialize: ->
     @collection.on 'add', @addDataset
-
     @add() if @collection.size() == 0
-
-    @render()
 
   add: ->
     @collection.add {}

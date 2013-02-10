@@ -7,14 +7,11 @@ class Application.Views.Dataset extends Backbone.View
   events: 
     "click .remove_dataset": "removeDataset"
     "change input": "update"
-    "change .title": "renameDataset"
     "change .expanded_fields": "addExpanded"
 
   render: =>
     @$el.html @template @model.toJSON(), schema: Application.schema
-    @model.fields.forEach (field) =>
-      @$el.find('.fields').append field.view.el
-      field.view.render()
+    @model.fields.forEach @addField
     @
     
   removeDataset: (e) ->
@@ -23,9 +20,6 @@ class Application.Views.Dataset extends Backbone.View
       @model.destroy()
       @remove()
     false
-  
-  renameDataset: (e) ->
-    @render()
 
   update: (e) ->
     field = @$(e.target)
@@ -40,6 +34,7 @@ class Application.Views.Dataset extends Backbone.View
   initialize: ->
     @model.fields.on "add", @addField
     @model.on 'add', @render
+    @model.on 'change:title', @render
 
   addField: (field) =>
     field.view.dataset = @model
