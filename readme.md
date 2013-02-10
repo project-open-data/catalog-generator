@@ -70,6 +70,18 @@ Available tasks
        default  Alias for "cs", "jst", "uglify", "mincss", "clean" tasks.   
 ```
 
+## Contributing
+
+This project constitutes a collaborative work ("open source"). Federal employees and members of the public are encouraged to improve the project by contributing.
+
+1. Configure git by using this [basic tutorial](https://help.github.com/articles/set-up-git) or by downloading the [GitHub for Mac](http://mac.github.com/)/[GitHub for Windows](http://windows.github.com/).
+2. [Fork](https://help.github.com/articles/fork-a-repo) the project.
+3. Make changes as you would normally using the tools installed in step #1.
+4. Push the changes back to your fork.
+5. Submitting a pull request to this repository.
+6. You change should appear once approved.
+
+*Note: All contributors retain the original copyright to their contribution, but by contributing to this project, you grant a world-wide, royalty-free, perpetual, irrevocable, non-exclusive, transferable license to all users under the terms of the license(s) under which this project is distributed.*
 
 ## License
 
