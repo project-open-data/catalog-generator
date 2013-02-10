@@ -65,7 +65,7 @@ basic:
     type: boolean
     
 
-if_applicable:
+expanded:
 
   - name: Endpoint
     definition: API Endpoint
@@ -86,8 +86,6 @@ if_applicable:
     definition: Range of temporal applicability
     json: temporal
     rdfa: dcterms:temporal
-
-expanded:
 
   - name: Release Date
     definition: Date of issuance
