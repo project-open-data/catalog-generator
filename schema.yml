@@ -107,6 +107,11 @@ expanded:
     json: granularity
     rdfa: dcat:granularity
 
+  - name: Data Quality
+    definition: The quality of data
+    json: dataQuality
+    rdfa: dcat:dataQuality
+    
   - name: Category
     definition: Main thematic category
     json: theme
