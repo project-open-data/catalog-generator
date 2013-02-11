@@ -12,10 +12,11 @@ class Application.Views.Upload extends Backbone.View
     jQuery.event.props.push('dataTransfer');
     
     if !@canHazFile()
-      @template = '<p>Your browser is not supported. Please consider <a href="http://browsehappy.com/">upgrading</a>.'
+      @template = ->
+        '<p>Your browser is not supported. Please consider <a href="http://browsehappy.com/">upgrading</a>.'
       
   render: ->
-    @$el.html @template( )   
+    @$el.html @template()   
   
   canHazFile: ->
     if !window.File? || !window.FileReader? || !window.FileList? || !window.Blob?

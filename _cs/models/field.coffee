@@ -19,15 +19,23 @@ class Application.Collections.Fields extends Backbone.Collection
 
 class Application.Collections.Schema
 
+  types: []
+
   constructor: ->
     $.ajax 'schema.yml', success: @initFields, async: false
   
   initFields: (data) =>
     for type, fields of jsyaml.load data
+      @types.push type if $.inArray( type, @types ) == -1
       @[type] = new Application.Collections.Fields()
       @[type].import fields
 
+  #Return an instance of a field by json name
   get: (field) ->
-    res = @basic.where "json": field
-    res = @expanded.where "json": field unless res.length
-    _.clone _.first res
+    _.clone _.first @all().where "json": field
+
+  #return all fields
+  all: ->
+    all = new Application.Collections.Fields()
+    all.add @[type].toJSON() for type in @types
+    all

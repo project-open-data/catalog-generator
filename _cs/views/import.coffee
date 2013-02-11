@@ -6,7 +6,7 @@ class Application.Views.Import extends Backbone.View
     "click #import": "import"
     
   render: ->
-    schema = Application.schema.basic.toJSON() #todo: add extended via concat()
+    schema = Application.schema.all().toJSON()
     @$el.html @template( schema: schema, fields: @getFields() )
     
   getFields: ->
