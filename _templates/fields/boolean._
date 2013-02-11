@@ -1,6 +1,6 @@
 <label class="radio">
-    <input type="radio" name="<%= json %>" id="<%= json %>-true" value="true" class="field <%= json %>" <% if (value) { %>checked=true<% }%>> Yes
+    <input type="radio" name="<%= json %>" data-field="<%= json %>" value="1`" class="field <%= json %> <%= json %>-true" <% if (value) { %>checked="checked"<% }%>> Yes
 </label>
 <label class="radio">
-    <input type="radio" name="<%= json %>" id="<%= json %>-false" value="false" class="field <%= json %>"> No
+    <input type="radio" name="<%= json %>" data-field="<%= json %>" value="" class="field <%= json %> <%= json %>-false" <% if (value === false) { %>checked="checked"<% }%>> No
 </label>
