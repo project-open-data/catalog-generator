@@ -69,7 +69,7 @@ expanded:
 
   - name: Endpoint
     definition: API Endpoint
-    json: WebService
+    json: webService
     rdfa: dcat:webService
     
   - name: License
@@ -107,6 +107,11 @@ expanded:
     json: granularity
     rdfa: dcat:granularity
 
+  - name: Data Quality
+    definition: The quality of data
+    json: dataQuality
+    rdfa: dcat:dataQuality
+    
   - name: Category
     definition: Main thematic category
     json: theme
@@ -134,5 +139,5 @@ expanded:
 
   - name: RSS Feed
     definition: URl for RSS feed of data
-    json: Feed
+    json: feed
     rdfa: dcat:feed
