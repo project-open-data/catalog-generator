@@ -1,6 +1,16 @@
-<h3><%= dataset['title'] %></h3>
-<ul>
-  <% schema.forEach( function(field) {  %>
-    <li rel="<%= field.rdfa %>"><strong><%= field.name %>:</strong> <%= dataset[field.json] || "" %></li>
-  <% }); %>
-</ul>
+  <div class="dataset" id="<%= dataset.identifier || "" %>">
+    <h3><%= dataset.title || "" %></h3>
+    <ul>
+      <% $.each( dataset, function(key,value) { 
+        field = schema.get(key);
+        
+        if ( !field )
+          return;
+        %>
+      <li>
+        <strong><%= field.toJSON().name %>:</strong> 
+        <span rel="<%= field.toJSON().rdfa %>"><%= value || "" %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </div>

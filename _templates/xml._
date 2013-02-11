@@ -1,5 +1,10 @@
-<dataset>
-  <% schema.forEach( function(field) {  %>
-    <attribute rel="<%= field.rdfa %>"><%= dataset[field.json] || "" %></attribute>
-  <% }); %>
-</dataset>
+  <dataset id="<%= dataset.identifier || "" %>">
+    <% $.each( dataset, function(key,value) { 
+      field = schema.get(key);
+      
+      if ( !field )
+        return;
+      %>
+      <attribute rel="<%= field.toJSON().rdfa %>"><%= value || "" %></attribute>
+      <% }); %>
+  </dataset>

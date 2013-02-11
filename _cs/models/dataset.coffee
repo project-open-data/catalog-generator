@@ -19,7 +19,7 @@ class Application.Collections.Datasets extends Backbone.Collection
     JSON.stringify @toJSON()
   
   getHTML: ->
-    @getTemplated 'html'
+    "<div class=\"datasets\">\n" + @getTemplated('html') + "</div>\n"
     
   getXML: ->
     "<datasets>\n" + @getTemplated('xml') + "</datasets>\n"
@@ -28,5 +28,5 @@ class Application.Collections.Datasets extends Backbone.Collection
     output = ''
     template = Application.Templates[type]
     @.each (dataset) ->
-      output += template schema: Application.schema.basic.toJSON(), dataset: dataset.toJSON()
+      output += template schema: Application.schema, dataset: dataset.toJSON()
     output
