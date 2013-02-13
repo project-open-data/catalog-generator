@@ -16,5 +16,13 @@ class Router extends Backbone.Router
    
   export: ->
     new Application.Views.Export( collection: Application.datasets).render()
-   
+
+  initialize: ->
+    Backbone.history.on 'route', @setActiveTab
+
+  setActiveTab: ->
+    $(".nav .active").removeClass "active"
+    tab = Backbone.history.fragment || "home"
+    $(".nav ." + tab).addClass "active"
+  
 Application.Router = new Router()
