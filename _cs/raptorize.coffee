@@ -12,7 +12,7 @@ class Raptorz
     "bottom": "-700px"
     "right" : "0"
     "display" : "block"
-  konami: "38,38,40,40,37,39,37,39,66,65"
+  konami: [38,38,40,40,37,39,37,39,66,65]
   key_history: []
   raptor: null
 
@@ -23,9 +23,10 @@ class Raptorz
   #cleva, cleva girl...
   stalk: (e) =>
     @key_history.push e.keyCode
-    @attack() if @key_history.toString().indexOf( @konami ) >= 0
+    @key_history.shift() if @key_history.length > @konami.length
+    @attack() if _.isEqual @key_history, @konami
 
-  # Append Raptor and Style
+  # Append Raptor
   append: ->
     $('body').append @raptorImageMarkup
     $('body').append @raptorAudioMarkup if @audioSupported
@@ -38,8 +39,10 @@ class Raptorz
 
   attack: ->
 
-    @locked = true
+    return if @locked
+
     @append() unless @raptor?
+    @locked = true
 
     #Sound Hilarity
     @rawr()
