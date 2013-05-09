@@ -10,26 +10,9 @@ basic:
     json: description
     rdfa: dct:description
 
-  - name: Documentation URL
-    definition: URL to documentation
-    json: dataDictionary
-    rdfa: dcat:dataDictionary
-    type: url
-
-  - name: Download URL
-    definition: URL to dataset 
-    json: download
-    rdfa: dcat:download
-    type: url
-
-  - name: Format
-    definition: File format or API type
-    json: format
-    rdfa: dcterms:format
-
   - name: Tags
     definition: Keywords describing tags
-    json: keywords
+    json: keyword
     rdfa: dcat:keyword
     type: text
 
@@ -40,7 +23,7 @@ basic:
 
   - name: Publisher
     definition: The publishing agency
-    json: organization
+    json: publisher
     rdfa: foaf:Organization
 
   - name: Contact Name
@@ -58,19 +41,33 @@ basic:
     json: identifier
     rdfa: dcterms:identifier
 
-  - name: Public
+  - name: Public Access Level
     definition: Whether the dataset is public
-    json: public
+    json: accessLevel
     rdfa: xsd:boolean
-    type: boolean
 
-expanded:
+  - name: Data Dictionary
+    definition: URL to documentation
+    json: dataDictionary
+    rdfa: dcat:dataDictionary
+    type: url
+
+  - name: Download URL
+    definition: URL to dataset 
+    json: accessURL
+    rdfa: dcat:download
+    type: url
 
   - name: Endpoint
     definition: API Endpoint
     json: webService
     rdfa: dcat:webService
     type: url
+
+  - name: Format
+    definition: File format or API type
+    json: format
+    rdfa: dcterms:format
 
   - name: License
     definition: The license dataset is published with
@@ -86,6 +83,8 @@ expanded:
     definition: Range of temporal applicability
     json: temporal
     rdfa: dcterms:temporal
+
+expanded:
 
   - name: Release Date
     definition: Date of issuance
@@ -122,11 +121,6 @@ expanded:
     json: references
     rdfa: dcat:distribution
 
-  - name: Distribution
-    definition: To connect to available distributions
-    json: distribution
-    rdfa: dcat:distribution
-
   - name: Size
     definition: Size of the downloadable dataset
     json: size
@@ -134,12 +128,22 @@ expanded:
 
   - name: Homepage URL
     definition: Dataset homepage
-    json: homepage
+    json: landingPage
     rdfa: foaf:homepage
     type: url
 
   - name: RSS Feed
-    definition: URl for RSS feed of data
+    definition: URL for RSS feed of data
     json: feed
     rdfa: dcat:feed
     type: url
+
+  - name: System of Records
+    definition: URL to the System of Records for this dataset
+    json: systemOfRecords
+    rdfa: dcat:distribution
+    type: url
+
+
+
+
