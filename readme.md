@@ -47,7 +47,7 @@ To run catalog generator locally (e.g., to contribute):
 
 ### Building
 
-* Use the command `grunt` to compile and compress all templates, coffeescript, and css files.
+* Use the command `grunt` to compile and compress all templates, coffeescript, and css files. If you don't have grunt installed, you will need to run `npm install -g grunt-cli` (or `sudo npm install -g grunt-cli` on OS X).
 * Use the command `jekyll` to initiate a server. The site will be available at `http://localhost:4000`.
 
 ### Additional Commands
