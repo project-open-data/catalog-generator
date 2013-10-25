@@ -7,15 +7,10 @@ class Application.Models.Dataset extends Backbone.Model
     hash
     
   initialize: ->
-    @on "change:public", @validatePublic
     @fields = new Application.Collections.Fields()
     @view = new Application.Views.Dataset model: @
     for field, value of @attributes
       @fields.add Application.schema.get(field).toJSON()
-
-  # force "public" value to be a bool, rather than a truthy string
-  validatePublic: ->
-    @set "public", !!@get("public"), silent: true
 
 class Application.Collections.Datasets extends Backbone.Collection
   model: Application.Models.Dataset
