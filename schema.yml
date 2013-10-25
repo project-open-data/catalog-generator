@@ -19,17 +19,17 @@ basic:
   - name: Last Update
     definition: Most recent date modified
     json: modified
-    rdfa: dcterms:modified
+    rdfa: dct:modified
 
   - name: Publisher
     definition: The publishing agency
     json: publisher
-    rdfa: foaf:Organization
+    rdfa: dct:publisher
 
   - name: Contact Name
-    definition: "First, last"
-    json: person
-    rdfa: foaf:Person
+    definition: "[First] [Last]"
+    json: contactPoint
+    rdfa: dcat:conctactPoint
 
   - name: Contact Email
     definition: Contact person's email
@@ -39,111 +39,105 @@ basic:
   - name: Unique Identifier
     definition: A unique identifier for the dataset
     json: identifier
-    rdfa: dcterms:identifier
+    rdfa: dct:identifier
 
   - name: Public Access Level
-    definition: Whether the dataset is public
+    definition: "'public', 'restricted public' or 'non-public'"
     json: accessLevel
-    rdfa: xsd:boolean
 
-  - name: Data Dictionary
-    definition: URL to documentation
-    json: dataDictionary
-    rdfa: dcat:dataDictionary
-    type: url
+  - name: Access Level Comment
+    definition: explanation for the selected “accessLevel”
+    json: accessLevelComment
+
+  - name: Bureau Code
+    definition:  "Combined agency and bureau code in format XXX:XXX"
+    json: bureauCode
+
+  - name: Program Code
+    definition:  The primary program related to this data asset.
+    json: programCode
 
   - name: Download URL
     definition: URL to dataset 
     json: accessURL
-    rdfa: dcat:download
+    rdfa: dcat:accessURL
     type: url
 
   - name: Endpoint
     definition: API Endpoint
     json: webService
-    rdfa: dcat:webService
     type: url
 
   - name: Format
     definition: File format or API type
     json: format
-    rdfa: dcterms:format
+    rdfa: dct:format
 
   - name: License
     definition: The license dataset is published with
     json: license
-    rdfa: dcterms:license
+    rdfa: dct:license
 
   - name: Spatial
     definition: Range of spatial applicability
     json: spatial
-    rdfa: dcterms:spatial
+    rdfa: dct:spatial
 
   - name: Temporal
     definition: Range of temporal applicability
     json: temporal
-    rdfa: dcterms:temporal
+    rdfa: dct:temporal
 
 expanded:
-
-  - name: Release Date
-    definition: Date of issuance
-    json: issued
-    rdfa: dct:issued
-
-  - name: Frequency
-    definition: Frequency of update
-    json: accrualPeriodicity
-    rdfa: dct:accrualPeriodocity
-
-  - name: Language
-    definition: Language of the dataset
-    json: language
-    rdfa: dcat:language
-
-  - name: Granularity
-    definition: Level of granularity of dataset
-    json: granularity
-    rdfa: dcat:granularity
-
-  - name: Data Quality
-    definition: The quality of data
-    json: dataQuality
-    rdfa: dcat:dataQuality
 
   - name: Category
     definition: Main thematic category
     json: theme
     rdfa: dcat:theme
 
-  - name: Related Documents
-    definition: Related material
-    json: references
-    rdfa: dcat:distribution
+  - name: Data Dictionary URL
+    definition: URL to the data dictionary for the dataset or API
+    json: dataDictionary
+    type: url
 
-  - name: Size
-    definition: Size of the downloadable dataset
-    json: size
-    rdfa: dcat:size
+  - name: Data Quality
+    definition: Whether the dataset meets the agency's Quality Guidelines (True/False)
+    json: dataQuality
+
+  - name: Distribution
+    definition:  Multiple download URLs for datasets composed of multiple files
+    json: distribution
+
+  - name: Frequency
+    definition: Frequency of update
+    json: accrualPeriodicity
+    rdfa: dct:accrualPeriodocity
 
   - name: Homepage URL
     definition: Dataset homepage
     json: landingPage
-    rdfa: foaf:homepage
+    rdfa: dcat:landingPage
     type: url
 
-  - name: RSS Feed
-    definition: URL for RSS feed of data
-    json: feed
-    rdfa: dcat:feed
-    type: url
+  - name: Language
+    definition: Language of the dataset
+    json: language
+    rdfa: dct:language
+
+  - name: Primary IT Investment UII
+    definition: For linking a dataset with an IT Unique Investment Identifier (UII)
+    json: PrimaryITInvestmentUII
+
+  - name: Related Documents
+    definition: Related material
+    json: references
+
+  - name: Release Date
+    definition: Date of formal issuance.
+    json: issued
+    rdfa: dct:issued
 
   - name: System of Records
     definition: URL to the System of Records for this dataset
     json: systemOfRecords
-    rdfa: dcat:distribution
     type: url
-
-
-
-
