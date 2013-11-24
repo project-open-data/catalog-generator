@@ -50,7 +50,7 @@ basic:
     json: accessLevelComment
 
   - name: Bureau Code
-    definition:  "Combined agency and bureau code in format XXX:XXX"
+    definition:  "Combined agency and bureau code in format XXX:XX"
     json: bureauCode
 
   - name: Program Code
