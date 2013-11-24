@@ -54,7 +54,7 @@ basic:
     json: bureauCode
 
   - name: Program Code
-    definition:  The primary program related to this data asset.
+    definition:  The primary program related to this data asset in format XXX:XXX.
     json: programCode
 
   - name: Download URL
