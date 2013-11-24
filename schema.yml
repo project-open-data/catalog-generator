@@ -101,7 +101,7 @@ expanded:
     type: url
 
   - name: Data Quality
-    definition: Whether the dataset meets the agency's Quality Guidelines (True/False)
+    definition: Whether the dataset meets the agency's Information Quality Guidelines (true/false)
     json: dataQuality
 
   - name: Distribution
